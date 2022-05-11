@@ -6,9 +6,9 @@
 /**@brief Struktur des Stacks.
  */
 typedef struct {
-    int* stackPointer;
-    int* stackStart;
-    int capacity;
+	int* stack;
+	int position;
+	int capacity;
 } IntStack;
 
 /* *** öffentliche Schnittstelle ******************************************** */

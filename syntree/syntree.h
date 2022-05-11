@@ -1,14 +1,33 @@
+/*
+Der Syntree managed eine Liste von allen Nodes.
+Eine SyntreeNode kann entweder eine Nummer (SyntreeNode.content.value) oder Kindknoten enthalten(SyntreeNode.content.value.childrenList).
+Wenn ein neuer Knoten angefordert wird, wird sichergestellt, dass die Liste im Syntree gross genug ist und der letzte Wert wird zurückgegeben.
+*/
+
+
 #ifndef SYNTREE_H_INCLUDED
 #define SYNTREE_H_INCLUDED
 
 /* *** Strukturen *********************************************************** */
 
-typedef /* muss noch definiert werden */ SyntreeNodeID;
+typedef unsigned int SyntreeNodeID;
 
 /**@brief Struktur des abstrakten Syntaxbaumes.
  */
 typedef struct {
-    /* hier sollte noch etwas dazu kommen */
+	int type;
+	union {
+		int value;
+		struct {
+			int len;
+			SyntreeNodeID* children;
+		} childrenList;
+	} content;
+} SyntreeNode;
+typedef struct {
+	SyntreeNode* memory;
+	int capacity;
+	int len;
 } Syntree;
 
 /* *** öffentliche Schnittstelle ******************************************** */

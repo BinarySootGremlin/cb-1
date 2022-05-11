@@ -10,10 +10,13 @@ int main() {
 	stackPush(&stack, 1);
 	stackPush(&stack, 2);
 	stackPush(&stack, 3);
+	stackPrint(&stack);
 	
 	while (!stackIsEmpty(&stack))
 		printf("%i\n", stackPop(&stack));
-	
+
+	printf("Empty: %d\n", stackIsEmpty(&stack));
+
 	stackPop(&stack);
 	
 	stackRelease(&stack);
